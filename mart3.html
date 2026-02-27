@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросник для любимой ❤️</title>
+    <link rel="stylesheet" href="cssANDjs/mart3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-card">
+            <div class="heart-container">
+                <i class="fas fa-heart big-heart"></i>
+            </div>
+            
+            <h1 class="title">Отвечай на все, попа</h1>
+            
+            <form id="quizForm" class="quiz-form">
+                <div class="questions-row">
+                    <div class="questions-column">
+                        <div class="question-block">
+                            <h3 class="question-title">
+                                <i class="fas fa-question-circle"></i>
+                                Сколько мне лет?
+                            </h3>
+                            <div class="options-group">
+                                <label class="option">
+                                    <input type="radio" name="q1" value="18">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">18</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="19">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">19</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="20">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">20</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <h3 class="question-title">
+                                <i class="fas fa-calendar-alt"></i>
+                                Дата пикника?
+                            </h3>
+                            <div class="options-group">
+                                <label class="option">
+                                    <input type="radio" name="q2" value="12 июля">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">12 июля 2025</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="3 августа">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">3 августа 2025</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="28 июля">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">28 июля 2025</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="questions-column">
+                        <div class="question-block">
+                            <h3 class="question-title">
+                                <i class="fas fa-heart"></i>
+                                Дата знакомства?
+                            </h3>
+                            <div class="options-group">
+                                <label class="option">
+                                    <input type="radio" name="q3" value="16 июня">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">16 июня 2025</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="17 июня">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">17 июня 2025</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="17 июля">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">17 июля 2025</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <h3 class="question-title">
+                                <i class="fas fa-cat"></i>
+                                Как зовут Симбу?
+                            </h3>
+                            <div class="options-group">
+                                <label class="option">
+                                    <input type="radio" name="q4" value="Майкл">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">Майкл</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="Симба">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">Симба</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="Даня">
+                                    <span class="radio-custom"></span>
+                                    <span class="option-text">Даня</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="checkAnswers()">
+                    <i class="fas fa-heart"></i>
+                    Ответить
+                    <i class="fas fa-heart"></i>
+                </button>
+            </form>
+
+            <div id="errorModal" class="modal-overlay">
+                <div class="modal-card">
+                    <i class="fas fa-heart-broken"></i>
+                    <h2>Ой!</h2>
+                    <p id="errorMessage">Фу вонючка</p>
+                    <button class="modal-close" onclick="closeModal()">
+                        <i class="fas fa-redo-alt"></i>
+                        Попробовать снова
+                    </button>
+                </div>
+            </div>
+
+            <div id="successModal" class="modal-overlay">
+                <div class="modal-card success">
+                    <i class="fas fa-check-circle"></i>
+                    <h2>Ура! 🎉</h2>
+                    <p>Хоть где то угадала, ура ура 💕</p>
+                    <button class="modal-next" onclick="goToNextPage()">
+                        <i class="fas fa-arrow-right"></i>
+                        Перейти дальше
+                    </button>
+                </div>
+            </div>
+
+            <div id="fallingHearts"></div>
+        </div>
+    </div>
+
+    <script src="cssANDjs/js/mart3.js"></script>
+</body>
+</html>

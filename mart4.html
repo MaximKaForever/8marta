@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твои подарки 🎁</title>
+    <link rel="stylesheet" href="cssANDjs/mart4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="gifts-card">
+            <div class="heart-container">
+                <i class="fas fa-heart big-heart"></i>
+            </div>
+            
+            <h1 class="title">Твои подарки 🎁</h1>
+            <p class="subtitle">С 8 Марта, любимая!</p>
+            
+            <div class="gift-block">
+                <div class="gift-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="gift-content">
+                    <h2 class="gift-title">Подарок №1</h2>
+                    <p class="gift-text">Скоро увидишь его 💝</p>
+                    <div class="gift-stickers">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-section">
+                <h2 class="game-title">
+                    <i class="fas fa-gamepad"></i>
+                    Собери сердечки
+                </h2>
+                <p class="game-subtitle">Собирай сердечки, нажимая на них! ❤️</p>
+                
+                <div class="game-container">
+                    <div class="game-stats">
+                        <div class="stat">
+                            <i class="fas fa-heart"></i>
+                            <span id="score">0</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span id="timer">15</span>с
+                        </div>
+                    </div>
+                    
+                    <div id="gameArea" class="game-area">
+                    </div>
+                    
+                    <button id="startGameBtn" class="game-btn" onclick="startGame()">
+                        <i class="fas fa-play"></i>
+                        Начать игру
+                    </button>
+                    
+                    <div id="gameResult" class="game-result hidden">
+                        <i class="fas fa-trophy"></i>
+                        <p id="resultMessage"></p>
+                        <button class="play-again-btn" onclick="resetGame()">
+                            <i class="fas fa-redo-alt"></i>
+                            Играть снова
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fallingHearts"></div>
+        </div>
+    </div>
+
+    <script src="cssANDjs/js/mart4.js"></script>
+</body>
+</html>

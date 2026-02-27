@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для любимой ❤️</title>
+    <link rel="stylesheet" href="cssANDjs/mart2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="heart-container">
+                <i class="fas fa-heart big-heart"></i>
+            </div>
+            
+            <h1 class="title">Ты меня любишь?</h1>
+            
+            <div class="buttons-container">
+                <button class="love-btn" onclick="showLoveMessage()">
+                    <i class="fas fa-heart"></i>
+                    Люблю
+                </button>
+                
+                <button class="hate-btn" id="hateBtn" onmouseover="teleportButton()">
+                    <i class="fas fa-heart-broken"></i>
+                    Не люблю
+                </button>
+            </div>
+
+            <div id="message" class="message hidden">
+                <i class="fas fa-check-circle"></i>
+                <p class="main-message">Я тебя тоже очень сильно люблю! ❤️</p>
+                <p class="small-text">Ты самая лучшая на свете!</p>
+                <button class="next-btn" onclick="goToNextPage()">
+                    Перейти далее 🌸
+                </button>
+            </div>
+
+            <script> 
+            function goToNextPage(){
+                window.location.href = 'mart3.html';
+            }
+
+            </script>
+
+            <div class="falling-hearts" id="fallingHearts"></div>
+        </div>
+    </div>
+
+    <script src="cssANDjs/js/mart2.js"></script>
+</body>
+</html>

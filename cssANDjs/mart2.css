@@ -1,0 +1,408 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2c2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Анимированные фоновые элементы */
+body::before {
+    content: '🌸🌹🌷💐🌺💝❤️💕💞';
+    position: absolute;
+    font-size: 40px;
+    width: 100%;
+    height: 100%;
+    animation: floatFlowers 15s linear infinite;
+    opacity: 0.2;
+    color: #ff6b8b;
+    white-space: nowrap;
+    letter-spacing: 30px;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 0%, transparent 50%);
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes floatFlowers {
+    0% {
+        transform: translateX(-100%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(360deg);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;  /* Увеличили максимальную ширину */
+    min-height: 800px;   /* Добавили минимальную высоту */
+    padding: 40px;
+}
+
+/* Карточка */
+.card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 50px;
+    padding: 80px 60px;  /* Увеличили отступы */
+    box-shadow: 
+        0 25px 45px rgba(255, 105, 180, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: cardAppear 0.8s ease-out;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 700px;  /* Минимальная высота карточки */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: rotateSparkles 20s linear infinite;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+@keyframes rotateSparkles {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Заголовок */
+.title {
+    font-size: 4.5em;  /* Увеличили */
+    font-weight: 800;
+    margin-bottom: 60px;
+    background: linear-gradient(45deg, #ff1493, #ff69b4, #ffb6c1, #ff1493);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 3s infinite;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: '❤️';
+    position: absolute;
+    font-size: 70px;
+    top: -40px;
+    right: -70px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+@keyframes gradientFlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Контейнер для сердца */
+.heart-container {
+    margin: 40px 0;
+    position: relative;
+    height: 150px;
+}
+
+.big-heart {
+    font-size: 120px;  /* Увеличили */
+    color: #ff1493;
+    animation: heartPulse 1.2s infinite;
+    display: inline-block;
+}
+
+@keyframes heartPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+    }
+    25% {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+    }
+    50% {
+        transform: scale(1.2);
+        text-shadow: 0 0 30px rgba(255, 20, 147, 1);
+    }
+    75% {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+    }
+}
+
+.buttons-container {
+    position: relative;
+    min-height: 220px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.love-btn {
+    padding: 15px 80px;  
+    font-size: 2.5em;    
+    font-weight: 600;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    border: none;
+    border-radius: 80px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px rgba(76, 175, 80, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    z-index: 20;
+    width: 350px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    margin-left: -550px;
+}
+
+.love-btn:hover {
+    background: linear-gradient(45deg, #45a049, #4CAF50);
+    transform: scale(1.1);
+    box-shadow: 0 5px 5px rgba(76, 175, 80, 0.6);
+    border-color: white;
+}
+
+.love-btn i {
+    font-size: 1.3em;
+}
+
+.hate-btn {
+    padding: 15px 30px;  
+    font-size: 2.5em;    
+    font-weight: 600;
+    background: linear-gradient(45deg, #ff4444, #cc0000);
+    border: none;
+    border-radius: 80px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px rgba(255, 68, 68, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    width: 350px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    z-index: 10;
+
+    right: 50px; 
+}
+
+.hate-btn:hover {
+    background: linear-gradient(45deg, #cc0000, #ff4444);
+    box-shadow: 0 15px 35px rgba(255, 68, 68, 0.6);
+    border-color: white;
+}
+
+.hate-btn i {
+    font-size: 1.3em;
+}
+
+.message {
+    margin-top: 60px;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: #ff1493;
+    font-size: 2.2em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: messageAppear 0.5s ease;
+}
+
+.message.hidden {
+    display: none;
+}
+
+.message i {
+    font-size: 80px;
+    color: #4CAF50;
+}
+
+.main-message {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.message .small-text {
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+.next-btn {
+    padding: 20px 60px;
+    font-size: 1.5em;
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.next-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 20, 147, 0.4);
+    border-color: white;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.falling-heart {
+    position: absolute;
+    color: #ff1493;
+    font-size: 25px;
+    animation: fall 3s linear forwards;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 3em;
+    }
+    
+    .title::after {
+        font-size: 50px;
+        top: -30px;
+        right: -50px;
+    }
+    
+    .love-btn, .hate-btn {
+        padding: 20px 50px;
+        font-size: 2em;
+        width: 280px;
+    }
+    
+    .big-heart {
+        font-size: 90px;
+    }
+    
+    .message {
+        padding: 30px;
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.5em;
+    }
+    
+    .love-btn, .hate-btn {
+        padding: 15px 40px;
+        font-size: 1.5em;
+        width: 240px;
+    }
+    
+    .big-heart {
+        font-size: 70px;
+    }
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>С 8 Марта! ❤️</title>
+    <link rel="stylesheet" href="cssANDjs/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-card {
+            background: rgba(255, 240, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            text-align: center;
+            color: #ff1493;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            box-shadow: 0 25px 45px rgba(255, 105, 180, 0.4);
+            animation: modalFadeIn 0.3s ease;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+        
+        .modal-card i {
+            font-size: 70px;
+            color: #ff1493;
+            margin-bottom: 20px;
+            animation: modalHeartBeat 1.5s infinite;
+        }
+        
+        .modal-card h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #ff1493;
+        }
+        
+        .modal-card p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .modal-close {
+            background: linear-gradient(45deg, #ff9a9e, #ff69b4);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .modal-close:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalHeartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            35% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+            55% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>С 8 Марта!</h1>
+                <div class="system-name">
+                    <h1>Проверка на жену</h1>
+                </div>
+            </div>
+
+            <form class="login-form" onsubmit="return checkLogin(event)">
+                <div class="input-group">
+                    <i class="fas fa-heart"></i>  
+                    <input type="text" id="username" placeholder="Твоё имя" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-heart"></i>  
+                    <input type="text" id="password" placeholder="Твоя фамилия" required>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Войти ❤️
+                </button>
+            </form>
+
+            <div id="errorModal" class="modal-overlay">
+                <div class="modal-card">
+                    <i class="fas fa-heart-broken"></i>
+                    <h2>Ой!</h2>
+                    <p id="errorMessage">Забыла фамилию? Подсказка - ты моя жена 💝</p>
+                    <button class="modal-close" onclick="closeModal()">Попробовать снова ❤️</button>
+                </div>
+            </div>
+            
+            <div class="footer-note">
+                <p>🌸 С 8 Марта, любимая! 🌸</p>
+                <p>© 08.03.2026 Для самой лучшей</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkLogin(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('username').value.trim().toLowerCase();
+            const surname = document.getElementById('password').value.trim().toLowerCase();
+            
+            if (name === '' || surname === '') {
+                showError('Заполни все поля, милая! ❤️');
+                return false;
+            }
+            
+            if (name === 'ангелина' && surname === 'авдеева') {
+                window.location.href = 'mart2.html';
+                return true;
+            }
+
+            if (name === 'ангелина' && surname !== 'авдеева') {
+                showError('Забыла фамилию? Подсказка - ты моя жена 💝');
+                return false;
+            }
+            
+            if (surname === 'авдеева' && name !== 'ангелина') {
+                showError('Фамилия правильная, но имя не то! ❤️');
+                return false;
+            }
+            
+            showError('Неверное имя или фамилия! Попробуй ещё раз 💕');
+            return false;
+        }
+        
+        function showError(message) {
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('errorModal').style.display = 'flex';
+        }
+        
+        function closeModal() {
+            document.getElementById('errorModal').style.display = 'none';
+            document.getElementById('password').value = '';
+        }
+        
+        window.onclick = function(event) {
+            const modal = document.getElementById('errorModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
