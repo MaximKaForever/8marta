@@ -17,14 +17,16 @@
             <h1 class="title">Твои подарки 🎁</h1>
             <p class="subtitle">С 8 Марта, любимая!</p>
             
-            <div class="gift-block">
+            <div class="gift-block" id="gift1" onclick="showSurprise()">
                 <div class="gift-icon">
                     <i class="fas fa-gift"></i>
                 </div>
                 <div class="gift-content">
-                    <h2 class="gift-title">Подарок №1</h2>
-                    <p class="gift-text">Скоро увидишь его 💝</p>
+                    <h2 class="gift-title">Подарочки для любимой</h2>
+                    <p class="gift-text">💝</p>
                     <div class="gift-stickers">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -67,6 +69,15 @@
                             Играть снова
                         </button>
                     </div>
+                </div>
+            </div>
+            
+            <div id="overlay" class="overlay hidden"></div>
+            
+            <div id="surpriseMessage" class="surprise-message hidden">
+                <div class="message-content">
+                    <span class="turn-text">ОБЕРНИСЬ</span>
+                    <span class="emoji">🎁</span>
                 </div>
             </div>
 
