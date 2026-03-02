@@ -16,7 +16,6 @@ body {
     padding: 20px;
 }
 
-/* Фоновые цветы */
 body::before {
     content: '🌸🌹🌷💐🌺💝❤️💕💞🎁';
     position: absolute;
@@ -48,7 +47,6 @@ body::before {
     padding: 20px;
 }
 
-/* Карточка */
 .gifts-card {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15px);
@@ -202,23 +200,26 @@ body::before {
     opacity: 0.8;
 }
 
-.gift-stickers {
-    display: flex;
-    gap: 10px;
-}
-
 .gift-stickers i {
-    color: #ffd700;
+    color: #7b0ad8;
     font-size: 20px;
-    animation: starTwinkle 1.5s infinite;
+    animation: starTwinkle 2s infinite;  
 }
 
 .gift-stickers i:nth-child(2) {
-    animation-delay: 0.5s;
+    animation-delay: 0.3s;  
 }
 
 .gift-stickers i:nth-child(3) {
-    animation-delay: 1s;
+    animation-delay: 0.6s;
+}
+
+.gift-stickers i:nth-child(4) {
+    animation-delay: 0.9s;  
+}
+
+.gift-stickers i:nth-child(5) {
+    animation-delay: 1.2s;  
 }
 
 @keyframes starTwinkle {
@@ -232,7 +233,6 @@ body::before {
     }
 }
 
-/* Секция игры */
 .game-section {
     background: rgba(255, 255, 255, 0.3);
     border-radius: 40px;
@@ -372,7 +372,6 @@ body::before {
     margin-bottom: 20px;
 }
 
-/* Падающие сердечки */
 .falling-heart {
     position: fixed;
     color: #ff1493;
@@ -436,5 +435,134 @@ body::before {
     
     .gift-icon i {
         font-size: 35px;
+    }
+}
+
+.gift-block {
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.gift-block.move-left {
+    transform: translateX(-300px);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.surprise-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: messageAppear 0.8s ease;
+}
+
+.surprise-message.hidden {
+    display: none;
+}
+
+.message-content {
+    text-align: center;
+    color: #ff1493;
+    animation: gradientFlow 2s infinite;
+}
+
+.turn-text {
+    font-size: 8em;
+    font-weight: 900;
+    display: block;
+    letter-spacing: 10px;
+    color: #ff1493;
+    text-shadow: 
+        2px 2px 0 #ff69b4,
+        4px 4px 0 rgba(255, 20, 147, 0.3);
+    animation: textShake 3s infinite;
+}
+
+.emoji {
+    font-size: 6em;
+    display: block;
+    margin-top: 20px;
+    animation: emojiSpin 3s infinite;
+    filter: drop-shadow(2px 2px 0 #ff69b4);
+}
+
+@keyframes messageAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes emojiSpin {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(360deg) scale(1.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .turn-text {
+        font-size: 4em;
+    }
+    
+    .emoji {
+        font-size: 3em;
+    }
+    
+    .gift-block.move-left {
+        transform: translateX(-150px);
+    }
+}
+
+@media (max-width: 480px) {
+    .turn-text {
+        font-size: 3em;
+        letter-spacing: 5px;
+    }
+    
+    .gift-block.move-left {
+        transform: translateX(-100px);
     }
 }
