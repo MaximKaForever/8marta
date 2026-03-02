@@ -157,3 +157,48 @@ window.addEventListener('load', () => {
         }
     }, 500);
 });
+
+
+function showSurprise() {
+    const gift1 = document.getElementById('gift1');
+    const overlay = document.getElementById('overlay');
+    const surpriseMessage = document.getElementById('surpriseMessage');
+    
+    gift1.classList.add('move-left');
+    overlay.classList.remove('hidden');
+    
+    setTimeout(() => {
+        surpriseMessage.classList.remove('hidden');
+    }, 300);
+    
+    createFireworks();
+    
+    setTimeout(() => {
+        hideSurprise();
+    }, 7500);
+}
+
+function hideSurprise() {
+    const gift1 = document.getElementById('gift1');
+    const overlay = document.getElementById('overlay');
+    const surpriseMessage = document.getElementById('surpriseMessage');
+    
+    gift1.classList.remove('move-left');
+    overlay.classList.add('hidden');
+    surpriseMessage.classList.add('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('overlay');
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            hideSurprise();
+        });
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        hideSurprise();
+    }
+});
